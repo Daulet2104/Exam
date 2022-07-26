@@ -1,0 +1,62 @@
+<!-- <p>{{allInfo? | json}}</p> -->
+<div class="shortInfo">
+  <h1>{{allInfo?.title}}</h1>
+  <p>{{allInfo?.opening_crawl}}</p>
+  <p>{{allInfo?.release_date | date:'dd.MM.yyy'}}</p>
+</div>
+<hr>
+<h2>List of starships</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Starship_class</th>
+    <th>Passengers</th>
+    <th>Length</th>
+    <th>Created</th>
+  </tr>
+  <tr *ngFor="let i of starships" (click)="modalInfo(i)">
+    <td>{{i.name}}</td>
+    <td>{{i.starship_class}}</td>
+    <td>{{i.passengers}}</td>
+    <td>{{i.length}}</td>
+    <td>{{i.created | date}}</td>
+  </tr>
+</table>
+<hr>
+List of people
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Gender</td>
+    <td>Height</td>
+    <td>Mass</td>
+    <td>Created</td>
+  </tr>
+  <tr *ngFor="let i of people">
+    <td>{{i.name}}</td>
+    <td>{{i.gender}}</td>
+    <td>{{i.height}}</td>
+    <td>{{i.mass}}</td>
+    <td>{{i.created | date}}</td>
+  </tr>
+</table>
+<hr>
+List of planets
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Climate</td>
+    <td>Gravity</td>
+    <td>Population</td>
+    <td>Created</td>
+  </tr>
+  <tr *ngFor="let i of planets">
+    <td>{{i.name}}</td>
+    <td>{{i.climate}}</td>
+    <td>{{i.gravity}}</td>
+    <td>{{i.population}}</td>
+    <td>{{i.created | date}}</td>
+  </tr>
+</table>
+<app-modal *ngIf="modal" [obj]="i" class="absolute"></app-modal>
+<router-outlet></router-outlet>
